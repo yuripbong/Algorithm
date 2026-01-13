@@ -1,12 +1,22 @@
 def solution(s):
-    answer = []
     
-    s = s.split(' ')
+    s = list(s)
+    print(s)
     
     for i in range(len(s)):
-        if s[i] != '':
-            answer.append(s[i][0].upper()+s[i][1:].lower())
-        else:
-            answer.append('')
+        if s[i] == ' ':
+            continue
+        s[i] = s[i].lower()
         
-    return ' '.join(answer)
+    print(s)
+    s = ''.join(s)
+    print(s)
+    
+    s = s.title()
+    print(s)
+    
+    for i in range(len(s)):
+        if s[i].isdigit():
+            s = s.replace(s[i+1], s[i+1].lower())
+
+    return s
